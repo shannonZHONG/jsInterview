@@ -26,6 +26,21 @@ f2();
 console.log(a)
 ```
 
-var a = 1  
+在 a = 1 前面加上 关键字 var ,也还有变量提升。<br> 
 
+```
+function fn(){
+if(true){
+
+console.log('变量提升'+a)
+}else {
+
+var a =1;
+console.log(2)
+
+
+}
+
+}
+fn()
 ```
