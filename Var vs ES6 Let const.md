@@ -95,7 +95,7 @@ let a=1
 
 ```
 
-const 和let 很相似，但是了const 只能被赋值一次.
+const 和let 很相似，但是了const 只能被赋值一次.多次赋值会报错.
 ```
 {
 const a =1;
@@ -104,3 +104,13 @@ a=2;
 console.log(a);//error
 }
 ```
+
+常见的踩坑题汇总:<br>
+
+```
+
+
+```
+
+
+
