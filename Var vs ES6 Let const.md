@@ -13,9 +13,19 @@ a =1
 console.log(window.a)
 
 ```
+它也可以是一个局部变量 .<br>
+```
+function f1(){
+var a 
+function f2(){
+a = 1
+console.log(a)
+}
+f2();
+}
+console.log(a)
+```
+
+var a = 1  
 
 ```
-var a =1  那在变量前面 加上关键字 var 是不是就能确定了？ 别忘啦， 还有变量提升这个概念。
-     
-```
-
