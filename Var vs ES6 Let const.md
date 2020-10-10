@@ -58,8 +58,27 @@ window.frank()
 
 ```
 
-let var = 1 就不会有var 所带来的所有的不确定性，甚至不用使用IIFE也可以达到形同的效果.<br>
+let var = 1 不会有var所带来的所有的不确定性，甚至不用使用IIFE也可以达到形同的效果.<br>
+
+```
+{
+let a = 1
+window.frank = function(){
+console.log(a)
+}
+}
+console.log(a) // error 
 
 ```
 
 ```
+ if(true){
+ let a = 1;
+ console.log(1);
+ }else{
+ console.log(2)
+ }
+ console.log(a)//error
+```
+
+
