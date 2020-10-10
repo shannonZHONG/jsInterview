@@ -58,7 +58,7 @@ window.frank()
 
 ```
 
-let var = 1 不会有var所带来的所有的不确定性，甚至不用使用IIFE也可以达到形同的效果.<br>
+let var = 1 不会有var所带来的不确定性，甚至不用使用IIFE也可以达到形同的效果.<br>
 
 ```
 {
@@ -80,5 +80,27 @@ console.log(a) // error
  }
  console.log(a)//error
 ```
+let 必须要先声明才能使用.<br>
+```
+{
+let a=1
+{
+  console.log(a)
+  let a =2 
+  {
+  let a =3
+  }
+}
+}
 
+```
 
+const 和let 很相似，但是了const 只能被赋值一次.
+```
+{
+const a =1;
+console.log(a);
+a=2;
+console.log(a);//error
+}
+```
