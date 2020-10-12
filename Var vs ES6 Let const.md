@@ -239,19 +239,39 @@ for(i =0; i<liTags.length;i++){
 ```
 
 ```
+<html>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+</head>
+<body>
+  <ul>
+    <li>导航1</li>
+    <li>导航2</li>
+    <li>导航3</li>
+    <li>导航4</li>
+    <li>导航5</li>
+    <li>导航6</li>
+  </ul>
+</body>
+</html>
+
+<script>
+var liTags =document.querySelectorAll('li')
 
 
-
+for(let i =0; i<liTags.length;i++){
+ liTags[i].onclick =function(){
+   console.log(i)
+   
+ }
+}
 
 ```
 
 
 
-```
 
-
-
-
-
-
-```
