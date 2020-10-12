@@ -103,7 +103,22 @@ apple.showTasks();
 
 ```
 
+上面的例子过于复杂？ 那就看下面的例子:<br>
 
+```
+function f1 (){
+console.log(this)
+}
+f1.call({name:"test"})
 
+```
+// {name:"test"} <br>
 
+```
+let f2 =()=>{
+console.log(this)
+}
+f2.call({name:"test"})
 
+```
+// window
