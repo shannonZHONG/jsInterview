@@ -405,5 +405,73 @@ obj.foo.call(obj2)(1)  obj.foo.call(obj2)= test test(1)
 ```
 
 1.21<br>
+```
+function foo1 () {
+  console.log(this.a)
+}
+var a = 1
+var obj = {
+  a: 2
+}
+
+var foo2 = function () {
+  foo1.call(obj)
+}
+
+foo2()
+foo2.call(window)
+```
+
+// 2 <br>
+// 2 <br>
+
+1.21
+```
+function foo1 (b) {
+  console.log(`${this.a} + ${b}`)
+  return this.a + b
+}
+var a = 1
+var obj = {
+  a: 2
+}
+
+var foo2 = function () {
+  return foo1.call(obj, ...arguments)
+}
+
+var num = foo2(3)
+console.log(num)
+```
+// 5 <br>
 
 
+1.22 <br> 
+这个要等一下.<br>
+
+```
+function foo (item) {
+  console.log(item, this.a)
+}
+var obj = {
+  a: 'obj'
+}
+var a = 'window'
+var arr = [1, 2, 3]
+
+// arr.forEach(foo, obj)
+// arr.map(foo, obj)
+arr.filter(function (i) {
+  console.log(i, this.a)
+  return i > 2
+}, obj)
+
+```
+
+
+1.23 <br>
+```
+
+
+
+```
