@@ -49,12 +49,12 @@ fn()
 (function x(){
 
 var a =1;
-window.frank = function(){
+window.apple = function(){
 console.log(a);
 
 }
 })()
-window.frank()
+window.apple()
 
 ```
 
