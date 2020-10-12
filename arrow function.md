@@ -122,3 +122,6 @@ f2.call({name:"test"})
 
 ```
 // Window
+
+
+
