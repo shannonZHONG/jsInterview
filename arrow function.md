@@ -121,4 +121,4 @@ console.log(this)
 f2.call({name:"test"})
 
 ```
-// window
+// Window
