@@ -74,13 +74,13 @@ apple.showTasks();
 ```
 结果是<br> 
 //wants to transform<br>
-//wants to eat cake<nr>
+//wants to eat cake<br>
 //wants to blow test<br> 
 
 和我们预期的结果相差甚远<br> 
-// alice wants to transform
-// alice wants to eat cake
-// alice wants to blow kisses
+// alice wants to transform<br>
+// alice wants to eat cake<br>
+// alice wants to blow kisses<br>
 
 有了箭头函数之后，需要少许改动，就可以达到预期的结果<br>
 原因是： 箭头函数自身没有this.<br>
