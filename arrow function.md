@@ -16,9 +16,9 @@ return 2
 
 }
 ```
-
+//以上函数可以通过三句话 来分拆<br>
 ```
-//以上函数可以通过三句话 来分拆：
+
 let test;
 test1 = function (p1,p2){
 console.log(1)
