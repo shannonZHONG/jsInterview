@@ -164,6 +164,7 @@ for(i =0; i<liTags.length;i++){
      console.log(i);
    }
 }
+console.log(i);
 
 ```
 当用户点击相关元素后，输出i的值为6。不管用户点击多少次，都是6.<br>
