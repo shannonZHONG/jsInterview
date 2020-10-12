@@ -105,12 +105,142 @@ console.log(a);//error
 }
 ```
 
-常见的踩坑题汇总:<br>
+常见踩坑题题汇总:<br>
+
+```
+var a = 1;
+function fn(){
+console.log(a)
+}
+a =2;
+fn() // a 的值一定会是2吗？ 如果没有上一句 a =2？
 
 ```
 
 
 ```
+var i;
+for(i = 0; i <6; i++){
+}
+console.log(i)
+
+```
+输出值i是6.<br>
+```
+var i;
+for(i =0; i<6;i++){
+function fn(){
+console.log(i)}
+fn()
+}
+```
+fn输出的i值 分别是 0 1 2 3 4 5<br> 
+```
+<html part>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+</head>
+<body>
+  <ul>
+    <li>导航1</li>
+    <li>导航2</li>
+    <li>导航3</li>
+    <li>导航4</li>
+    <li>导航5</li>
+    <li>导航6</li>
+  </ul>
+</body>
+</html>
+
+<script>
+var liTags =document.querySelectorAll('li')
+
+var i
+for(i =0; i<liTags.length;i++){
+   liTags[i].onclick = function(){
+     console.log(i);
+   }
+}
+
+```
+当用户点击相关元素后，输出i的值为6。不管用户点击多少次，都是6.<br>
+
+```
+<html>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+</head>
+<body>
+  <ul>
+    <li>导航1</li>
+    <li>导航2</li>
+    <li>导航3</li>
+    <li>导航4</li>
+    <li>导航5</li>
+    <li>导航6</li>
+  </ul>
+</body>
+</html>
+
+<script>
+var liTags =document.querySelectorAll('li')
+
+var i
+for(i =0; i<liTags.length;i++){
+  let j =i;
+   liTags[j].onclick = function(){
+     console.log(j);
+   }
+}
+
+```
+
+
+```
+<html>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+</head>
+<body>
+  <ul>
+    <li>导航1</li>
+    <li>导航2</li>
+    <li>导航3</li>
+    <li>导航4</li>
+    <li>导航5</li>
+    <li>导航6</li>
+  </ul>
+</body>
+</html>
+
+<script>
+var liTags =document.querySelectorAll('li')
+
+var i
+for(i =0; i<liTags.length;i++){
+ (function(){
+   var j =arguments[0]
+   liTags[j].onclick =function(){
+     console.log(j)
+   }
+ })(i)
+}
+
+```
+
+```
 
 
 
+
+```
