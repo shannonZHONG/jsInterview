@@ -472,7 +472,95 @@ arr.filter(function (i) {
 
 1.23 <br>
 ```
-
-
+function Person (name) {
+  this.name = name
+}
+var name = 'window'
+var person1 = new Person('LinDaiDai')
+console.log(person1.name)
 
 ```
+
+// LinDaiDai<br>
+
+
+1.24 <br>
+```
+function Person (name) {
+  this.name = name
+  this.foo1 = function () {
+    console.log(this.name)
+  }
+  this.foo2 = function () {
+    return function () {
+      console.log(this.name)
+    }
+  }
+}
+var person1 = new Person('person1')
+person1.foo1()
+person1.foo2()()?????????????????????????????????????????????????????
+
+```
+//person1 <br>
+//??????????????????????????????
+
+
+1.25<br>
+```
+var name = 'window'
+function Person (name) {
+  this.name = name
+  this.foo = function () {
+    console.log(this.name)
+    return function () {
+      console.log(this.name)
+    }
+  }
+}
+var person2 = {
+  name: 'person2',
+  foo: function() {
+    console.log(this.name)
+    return function () {
+      console.log(this.name)
+    }
+  }
+}
+  
+var person1 = new Person('person1')
+person1.foo()()
+person2.foo()()
+
+```
+
+// person1 <br>
+// Window <br>
+// person2<br>
+// Window <br>
+
+1.26<br>
+```
+var name = 'window'
+function Person (name) {
+  this.name = name
+  this.foo = function () {
+    console.log(this.name)
+    return function () {
+      console.log(this.name)
+    }
+  }
+}
+var person1 = new Person('person1')
+var person2 = new Person('person2')
+
+person1.foo.call(person2)()
+person1.foo().call(person2)
+
+```
+//person2<br>
+//Window<br>
+//person1<br>
+//person2<br>
+
+
