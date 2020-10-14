@@ -564,3 +564,28 @@ person1.foo().call(person2)
 //person2<br>
 
 
+1.27<br>
+```
+var obj = {
+  name: 'obj',
+  foo1: () => {
+    console.log(this.name)
+  },
+  foo2: function () {
+    console.log(this.name)
+    return () => {
+      console.log(this.name)
+    }
+  }
+}
+var name = 'window'
+obj.foo1()
+obj.foo2()()
+
+```
+
+// Window<br>
+// obj<br>
+// obj<br>
+
+
