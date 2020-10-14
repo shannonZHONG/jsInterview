@@ -7,7 +7,8 @@ var a = 10;
 function foo () {
   console.log(this.a)
 }
-foo.call(window); 
+foo()
+// foo.call(window); 
 
 ```
 // 10<br>
@@ -21,7 +22,7 @@ function foo () {
   console.log(window.b)
   console.log(this.b)
 }
-foo.call(window);
+foo(); // foo.call(window);
 console.log('this2', this)
 
 
@@ -40,7 +41,7 @@ function foo () {
   console.log(this.a)
   console.log(this.b)
 }
-foo.call(window);
+foo()//foo.call(window);
 console.log(window.a)?????????????????????????????????
 console.log(a)
 
@@ -59,7 +60,7 @@ function foo () {
   console.log(this.a)
 }
 
-foo.call(window)
+foo()//foo.call(window)
 
 ```
 
@@ -77,7 +78,7 @@ function foo () {
   inner()
 }
 
-foo.call(window)
+foo()//foo.call(window)
 
 ```
 //1 <br>
@@ -89,7 +90,7 @@ function foo () {
 }
 var obj = { a: 1, foo }
 var a = 2
-obj.foo.call(obj)
+obj.foo() //obj.foo.call(obj)
 
 ```
 // 1 <br>
@@ -103,8 +104,8 @@ var obj = { a: 1, foo };
 var a = 2;
 var foo2 = obj.foo;
 
-obj.foo.call(obj);
-foo2.call(window);
+obj.foo()//obj.foo.call(obj);
+foo2()//foo2.call(window);
 ```
 //1 <br>
 //2 <br>
