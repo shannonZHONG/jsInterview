@@ -64,8 +64,8 @@ var apple = {
   name: 'alice',
   tasks: ['transform', 'eat cake', 'test'],
   showTasks: function() {
-    this.tasks.forEach(function(task) {
-      alert(this.name + " wants to " + task);
+    this.tasks.forEach(function(tasks) {
+      console.log(this.name + " wants to " + tasks);
     });
   }
 };
@@ -97,9 +97,9 @@ var apple = {
 };
 
 apple.showTasks();
-// Usagi wants to transform
-// Usagi wants to eat cake
-// Usagi wants to blow kisses
+// alice wants to transform
+// alice wants to eat cake
+// alice wants to blow kisses
 
 ```
 
