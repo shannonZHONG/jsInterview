@@ -9,5 +9,6 @@ react/vue 2p<br>
 javascript 游戏s 博文 1篇<br>
 vue/react 轮子 2p<br>
 设计模式<br>
+// 以上博文尽量多使用代码解释。 
 励志故事收集<br>
 
