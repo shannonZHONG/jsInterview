@@ -59,5 +59,141 @@ console.log(用户信息)
 
 获取用户信息(打印用户信息)
 ```
-为了解决以上的问题，我们可以使用promise.<br> 
+为了解决以上的问题：回调地狱，我们可以使用promise.<br> 
+就是直接使用一个简单的API:then.<br>
+例子1:<br>
+```
+function 获取用户信息(){
+  return new Promise(function(resolve,reject){
+  console.log('第一次获取用户信息中.....')
+  resolve('姓名test0')
+  })
+}
 
+function 打印用户信息(用户信息){
+return new Promise(function(resolve,reject){
+console.log(用户信息)
+resolve()
+})
+}
+
+
+function 获取另一个用户信息(){
+return new Promise(function(resolve,reject){
+console.log('第二次获取用户信息中....')
+resolve('姓名test1')
+})
+}
+
+获取用户信息()
+    .then(打印用户信息)
+    .then(获取另一个用户信息)
+    .then(打印用户信息)
+    
+```
+
+
+例子2:<br>
+```
+function 获取用户信息(name){
+return new Promise(function (resolve,reject){
+
+if(name === 'test'){
+console.log('我认识test')
+resolve('testtest')
+}else{
+console.log('不认识')
+reject()
+}
+
+})
+}
+获取用户信息('test').then(function(d){console.log(d)},function(){console.log('看起来不认识test')})
+
+```
+
+例子3: promise链<br>
+```
+function 获取用户信息(name){
+return new Promise(function(resolve,reject){
+if(name === 'test'){
+console.log('我认识test')
+resolve(['test','是个test'])
+}else{
+console.log('不认识')
+reject()
+}
+})
+}
+
+function 获取好友信息(name){
+return new Promise(function(resolve,reject){
+if(name === 'test'){
+resolve('今天是个好日子')
+}else{
+reject()
+}
+
+})
+}
+
+function 打印信息(data){
+return new Promise(function(resolve,reject){
+console.log(data)
+resolve(data[0])
+})
+}
+
+获取用户信息('test')
+.then(打印信息)
+.then(获取好友信息)
+.then(打印信息)
+
+```
+
+例子4: promise链：不是每一次都执行resolve<br>
+```
+function 获取用户信息(name){
+return new Promise(function(resolve,reject){
+if(name === 'test'){
+console.log('我认识test')
+resolve(['test','是个test']) // 是把成功的数据，返回给
+}else{
+console.log('不认识')
+reject()
+}
+})
+}
+
+function 获取好友信息(name){
+console.log('获取好友信息在执行')
+return new Promise(function(resolve,reject){
+if(name === 'test'){
+resolve('今天是个好日子')
+}else{
+reject()
+}
+
+})
+}
+
+function 打印信息(data){
+return new Promise(function(resolve,reject){
+console.log(data)
+resolve(data[0])
+})
+}
+
+获取用户信息('test1')
+.then(打印信息,function(理由){ console.log('失败的理由' + 理由)})
+.then(获取好友信息)
+.then(打印信息)
+
+// 不认识
+// 失败的理由undefined
+// 获取好友的信息在执行
+
+
+
+
+```
