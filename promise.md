@@ -303,6 +303,57 @@ function 打印失败信息(理由){
 
 ```
 
+例子7:在第一层执行rejec的情况下，仍然可以执行第二层和第三层<br>
+
+```
+function 获取用户信息(name){
+return new Promise(function(resolve,reject){
+if(name === 'test'){
+console.log('我认识test')
+resolve(['test','是个test']) // 是把成功的数据，返回给
+}else{
+console.log('不认识')
+reject("不认识")// 
+}
+})
+}
+
+function 获取好友信息(name){
+console.log('获取好友信息在执行')
+return new Promise(function(resolve,reject){
+if(name === 'test'){
+resolve('今天是个好日子')
+}else{
+reject()
+}
+
+})
+}
+
+function 打印信息(data){
+return new Promise(function(resolve,reject){
+console.log(data)
+resolve(data[0])
+})
+}
 
 
+
+function 打印失败信息(理由){
+   console.log('失败的理由是'+理由)
+   return Promise.resolve('test')
+}
+   
+
+
+
+
+获取用户信息('test1')
+.then(打印信息,打印失败信息)
+.then(获取好友信息)
+.then(打印信息)
+
+
+
+```
 
