@@ -60,7 +60,7 @@ console.log(用户信息)
 获取用户信息(打印用户信息)
 ```
 为了解决以上的问题：回调地狱，我们可以使用promise.<br> 
-就是直接使用一个简单的API:then.<br>
+直接使用一个简单的API:then.<br>
 例子1:<br>
 ```
 function 获取用户信息(){
@@ -151,7 +151,7 @@ resolve(data[0])
 
 ```
 
-例子4: promise链：不是每一次都执行resolve<br>
+例子4: promise链:在失败的情况下，仍然调用获取好友信息<br>
 ```
 function 获取用户信息(name){
 return new Promise(function(resolve,reject){
@@ -160,7 +160,7 @@ console.log('我认识test')
 resolve(['test','是个test']) // 是把成功的数据，返回给
 }else{
 console.log('不认识')
-reject()
+reject()// 
 }
 })
 }
@@ -190,10 +190,119 @@ resolve(data[0])
 .then(打印信息)
 
 // 不认识
-// 失败的理由undefined
+// 失败的理由undefined ，是因为reject里面没有任何东西传递回球. resolve 是把成功的数据传给下一个回调函数，同时reject是把失败的理由传给下一个回调函数.
 // 获取好友的信息在执行
 
+```
 
 
+
+例子5:在失败的情况下，仍然调用获取好友信息这个回调函数<br>
+```
+function 获取用户信息(name){
+return new Promise(function(resolve,reject){
+if(name === 'test'){
+console.log('我认识test')
+resolve(['test','是个test']) // 是把成功的数据，返回给
+}else{
+console.log('不认识')
+reject()// 
+}
+})
+}
+
+function 获取好友信息(name){
+console.log('获取好友信息在执行')
+return new Promise(function(resolve,reject){
+if(name === 'test'){
+resolve('今天是个好日子')
+}else{
+reject()
+}
+
+})
+}
+
+function 打印信息(data){
+return new Promise(function(resolve,reject){
+console.log(data)
+resolve(data[0])
+})
+}
+
+function 打印失败信息(理由){
+       console.log('失败的理由' + 理由)
+}
+
+获取用户信息('test1')
+.then(打印信息,打印失败信息)
+.then(获取好友信息)
+.then(打印信息)
+
+
+// 不认识
+// 失败的理由undefined 
+// 获取好友的信息在执行
+```
+
+例子6:在失败的情况下，怎样才能不调用下一个回调函数<br> 
+```
+function 获取用户信息(name){
+return new Promise(function(resolve,reject){
+if(name === 'test'){
+console.log('我认识test')
+resolve(['test','是个test']) // 是把成功的数据，返回给
+}else{
+console.log('不认识')
+reject("不认识")// 
+}
+})
+}
+
+function 获取好友信息(name){
+console.log('获取好友信息在执行')
+return new Promise(function(resolve,reject){
+if(name === 'test'){
+resolve('今天是个好日子')
+}else{
+reject()
+}
+
+})
+}
+
+function 打印信息(data){
+return new Promise(function(resolve,reject){
+console.log(data)
+resolve(data[0])
+})
+}
+
+// 简化写法
+function 打印失败信息(理由){
+   console.log('失败的理由是'+理由)
+   return Promise.reject('没搞掂')
+}
+// 完整写法
+
+function 打印失败信息(理由){
+  return new Promise(function(resolve,reject){
+  console.log('失败的理由是'+理由)  
+  reject()
+  })
+   
+   
+}
+
+
+
+获取用户信息('test1')
+.then(打印信息,打印失败信息)
+.then(获取好友信息)
+.then(打印信息)
 
 ```
+
+
+
+
