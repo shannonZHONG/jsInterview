@@ -39,7 +39,9 @@ console.log(用户信息)
 })
 
 
-// 从代码可读性来看：造成这样的回调地狱，过多的调用匿名函数
+// 从代码可读性来看：造成这样的回调地狱，过多的调用匿名函数，可读性直线下降
+
+// 如果不调用匿名函数，像下面这样把一个函数一个函数的抽出来，可读性也不会很好
 funcion 获取用户信息(fn){
 fn("姓名：方方")
 }
@@ -93,7 +95,7 @@ resolve('姓名test1')
 ```
 
 
-例子2:<br>
+例子2: resolve 和 reject 一一对应的部分<br>
 ```
 function 获取用户信息(name){
 return new Promise(function (resolve,reject){
@@ -112,7 +114,8 @@ reject()
 
 ```
 
-例子3: promise链<br>
+例子3: promise链：获取用户信息,打印信息,获取好友信息,打印信息<br>
+这条promise链当中, 是基于全是正确的，没有一个失败<br>
 ```
 function 获取用户信息(name){
 return new Promise(function(resolve,reject){
@@ -152,6 +155,8 @@ resolve(data[0])
 ```
 
 例子4: promise链:在失败的情况下，仍然调用获取好友信息<br>
+因为reject里面没有任何东西传递回去.<br>
+resolve 是把成功的数据传给下一个回调函数，同时reject是把失败的理由传给下一个回调函数.<br>
 ```
 function 获取用户信息(name){
 return new Promise(function(resolve,reject){
@@ -190,14 +195,14 @@ resolve(data[0])
 .then(打印信息)
 
 // 不认识
-// 失败的理由undefined ，是因为reject里面没有任何东西传递回球. resolve 是把成功的数据传给下一个回调函数，同时reject是把失败的理由传给下一个回调函数.
+// 失败的理由undefined 
 // 获取好友的信息在执行
 
 ```
 
 
 
-例子5:在失败的情况下，仍然调用获取好友信息这个回调函数<br>
+例子5:在失败的情况下，仍然调用获取好友信息这个回调函数，理由同上，只是写法不一样<br>
 ```
 function 获取用户信息(name){
 return new Promise(function(resolve,reject){
