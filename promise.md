@@ -368,12 +368,25 @@ function 打印失败信息(理由){
 ```
 function Promise(fn){
 var status = 'pending'
+
 function successNotify(){
 status = 'resolved'
+toDOThen()
 }
 
 function failNotify(){
 status = 'rejectded'
+toDoThen()
+}
+function toDOThen(){
+if(status === 'resolved'){
+for(let i =0;i<successArray.length;i++){
+successArray[i].call()
+}
+}else if (status === 'rejected'){
+for(let i =0;i<failArray.length;i++){
+failArray[i].call()
+}}
 }
 
 var successArray = []
@@ -388,8 +401,6 @@ fn.call(undefined,successNotify,failNotify)
      }
   }
 }
-
-
 
 
 ```
