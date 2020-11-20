@@ -364,8 +364,17 @@ function 打印失败信息(理由){
 
 ```
 
+例子8:自己写promise<br>
+```
 
-例子8:语法糖<br>
+
+
+
+
+```
+
+
+例子9:语法糖<br>
 await, catch,error<br>
 ```
 function 获取用户信息(name){
