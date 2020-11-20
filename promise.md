@@ -364,9 +364,30 @@ function 打印失败信息(理由){
 
 ```
 
-例子8:自己写promise<br>
+例子8:自己写简易版promise<br>
 ```
+function Promise(fn){
+var status = 'pending'
+function successNotify(){
+status = 'resolved'
+}
 
+function failNotify(){
+status = 'rejectded'
+}
+
+var successArray = []
+var failArray = []
+fn.call(undefined,successNotify,failNotify)
+
+  return {
+     then: function(successFn,failFn){
+     successArray.push(successFn)
+     failArray.push(failFn)    
+     return undefined
+     }
+  }
+}
 
 
 
