@@ -36,6 +36,8 @@ var fn6 = i => i+1
 global              fn1
         fn3    fn2   param1  local1  local2
         local2 local2
+在函数fn3 里面调用函数fn2同时传参local2，最后的结果也不会影响。<br>
+
 ```
 var global1 = 1
 function fn1(param1){
@@ -52,9 +54,9 @@ function fn2(param2){
 fn2()   
   
 function fn3(){
-   var test = 'fn3 local2'
-   fn2(local2)
-   console.log('在funcion fn3的作用范围内'+ test)
+   var local2 = 'fn3 local2'
+   fn2(local2) 
+   console.log(local2)
 }
 fn3()
 }
