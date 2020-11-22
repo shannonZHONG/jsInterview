@@ -32,8 +32,7 @@ var fn6 = i => i+1
 ```
 2.0 词法作用域<br>
 游览器会把以下代码编译成一个树，俗称抽象语法树<br>
-
-
+![xxxxxx](https://github.com/shannonZHONG/jsInterview/blob/master/function1.jpg)
           
 在函数fn3 里面调用函数fn2同时传参local2，最后的结果也不会影响。<br>
 
