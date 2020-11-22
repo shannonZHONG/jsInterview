@@ -34,8 +34,6 @@ var fn6 = i => i+1
 游览器会把以下代码编译成一个树，俗称抽象语法树<br>
 ![xxxxxx](https://github.com/shannonZHONG/jsInterview/blob/master/function1.jpg)
           
-在函数fn3 里面调用函数fn2同时传参local2，最后的结果也不会影响。<br>
-
 ```
 var global1 = 1
 function fn1(param1){
@@ -54,7 +52,7 @@ fn2()
 function fn3(){
    var local2 = 'fn3 local2'
    fn2(local2) 
-   console.log(local2)
+   console.log('在函数fn3 里面调用函数fn2同时传参local2，最后的结果也不会影响'+local2)
 }
 fn3()
 }
