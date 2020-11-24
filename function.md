@@ -167,6 +167,20 @@ window.name = '这就是一个函数'
 var fn = person.sayHi
 fn()
 
+```
+call 和 apply 的差别<br>
+```
+// 当不知道arguments的个数时，直接用apply 
+function sum(){
+  var n =0;
+  for(var i =0; i<arguments.length;i++){
+    n+= arguments[i]
+  }
+  return n
+}
+
+var a = [1,2,3,4,5,6,7,8]
+sum.apply(undefined,a)
 
 
 ```
