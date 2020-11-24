@@ -57,7 +57,7 @@ function fn3(){
 fn3()
 }
 ```
-call stack : <br>
+3.0 call stack : <br>
 stack： 是一种数据结构，先进后出<br>
 ```
 function a(){
@@ -83,4 +83,90 @@ a()
 console.log('end')
 
 ```
+4.0 this & argumnets
+4.0.1 this在哪里？<br>
+```
+//this 是call的第一个参数，而且第一个参数必须是对象
 
+function f(){
+console.log(this)
+console.log(arguments)
+}
+
+f.call()// window 
+f.call({name:'test'}) 
+f.call({name:'test'},1)
+f.call({name:'test'},1,2)
+
+ 
+```
+4.0.2 this存在的意义<br>
+```
+// 没有this的话，每次都要传对象而且调用函数时也要传对象，非常的不方便.
+var person = {
+name:'test',
+sayHi: function (person){
+       console.log('hi,I am' + person.name)
+},
+sayBye: function(person){
+       console.log('bye,I am ' + person.name)
+},
+say: function(person,word){
+       onsole.log(word + ',I am' + person.name)
+}
+
+}
+person.sayHi(person)
+person.sayBye(person)
+person.say(person,',I am' + person.name)
+
+```
+
+引入this之后,参数对象person 就不用每个函数都传且调用这个函数是也不用传参<br>
+```
+var person = {
+name:'test',
+sayHi: function (){
+       console.log('hi,I am' + this.name)
+},
+sayBye: function(){
+       console.log('bye,I am ' + this.name)
+},
+say: function(word){
+       console.log(word + ',I am' + this.name)
+}
+
+}
+person.sayHi()
+person.sayBye()
+person.say('test test')
+
+//引入内置API call，检查下call 的第一个参数是对象
+person.sayHi.call(person)
+person.sayBye.call(person)
+person.say.call(person,test)
+
+
+```
+特例：<br>
+```
+var person = {
+name:'test',
+sayHi: function (){
+       console.log('hi,I am' + this.name)
+},
+sayBye: function(){
+       console.log('bye,I am ' + this.name)
+},
+say: function(word){
+       console.log(word + ',I am' + this.name)
+}
+
+}
+window.name = '这就是一个函数' 
+var fn = person.sayHi
+fn()
+
+
+
+```
