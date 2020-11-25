@@ -184,3 +184,52 @@ sum.apply(undefined,a)
 
 
 ```
+bind 是返回一个新函数,或者说换一种说法：可以直接指定this绑定在哪个对象上<br>
+
+```
+var studentName = {
+    firstname: 'test0',
+    lastname: 'test1 ',
+    getStudentName: function() {
+        var fullname = this.firstname + ' ' + this.lastname;
+        return fullname;
+    }
+};
+
+var SaveStudentName = function(score, year) {
+    console.log('studentName is 'this.getStudentName() + 'the student's score is ' + score + ' in ' + year);
+};
+
+var testStudentName = SaveStudentName.bind(studentName)
+testStudentName('45',2013)
+```
+
+5.0 函数柯里化<br>
+```
+
+
+
+```
+
+6.0 自制一个柯里化函数<br>
+```
+
+```
+7.0 高阶函数<br>
+
+```
+
+```
+
+8.0 回调函数<br>
+
+```
+
+```
+
+9.0 箭头函数<br>
+
+```
+
+```
+
