@@ -229,23 +229,36 @@ addOne(4)
 ```
 
 7.0 高阶函数<br>
-同时满足两个条件:<br>
+至少满足两个条件当中的一个:<br>
 接受一个或多个函数作为输入<br>
 输出一个函数<br>
+
 ```
+var numbers = [4, 2, 5, 1, 3];
+numbers.sort(function(a, b) {
+  return b-a;
+});
+console.log(numbers);
 
+var numbers = [4, 2, 5, 1, 3];
+numbers.sort(function(a, b) {
+  return a-b;
+});
+console.log(numbers);
 
-
-
+// 除了sort，还有forEach，map,filter,reduce等都是高阶函数
+// 为了更好的理解高阶函数和this 建议使用call
+array.sort(function(a,b){a-b})  array.sort.call(array,fn)
+array.forEach(function(a){})    array.forEach.call(array,fn)  
+array.map(function(){})         array.map.call(array,fn)
+array.filter(function(){})      array.filter.call(array,fn)
+array.reduce(function(){})      array.reduce.call(array,fn)
 
 ```
 
 8.0 回调函数<br>
 
 ```
-
-
-
 
 
 
