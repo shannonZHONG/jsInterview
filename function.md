@@ -204,20 +204,39 @@ var testStudentName = SaveStudentName.bind(studentName)
 testStudentName('45',2013)
 ```
 
+
 5.0 函数柯里化<br>
 ```
+function sum(x,y){
+return x+y
+}
 
-
-
+function addOne(y){
+return sum(1,y) // 这就是科里化，不是所有参数都在变化。
+}
+addOne(4)
 ```
 
 6.0 自制一个柯里化函数<br>
 ```
 
-```
-7.0 高阶函数<br>
+
+
+
+
+
 
 ```
+
+7.0 高阶函数<br>
+同时满足两个条件:<br>
+接受一个或多个函数作为输入<br>
+输出一个函数<br>
+```
+
+
+
+
 
 ```
 
@@ -225,11 +244,21 @@ testStudentName('45',2013)
 
 ```
 
+
+
+
+
+
 ```
 
 9.0 箭头函数<br>
 
 ```
+
+
+
+
+
 
 ```
 
