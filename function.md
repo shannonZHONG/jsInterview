@@ -301,20 +301,5 @@ array.reduce(function(){})      array.reduce.call(array,fn)
 
 8.0 回调函数<br>
 
-```
-
-
-
-```
-
-9.0 箭头函数<br>
-
-```
-
-
-
-
-
-
-```
+当参数是一个函数时，而不是一个变量而且这个参数会被执行<br>
 
