@@ -203,8 +203,51 @@ var SaveStudentName = function(score, year) {
 var testStudentName = SaveStudentName.bind(studentName)
 testStudentName('45',2013)
 ```
+下面这个例子，引入setTimeout并使用API-bind：更能确定bind 可以指定this所指的对象
+产生的新函数调用function(){console.log(this)}并同时传递参数：对象{name:'test'}<br>
+```
+setTimeout(function(){
+console.log(this)
+}.bind({name:'test'}),1000)
+// {name:'test'}
 
+```
+不使用API-bind：<br>
 
+```
+setTimeout(function(){console.log(this)},1000)
+// window 
+
+```
+两个函数，一个使用API-bind，另外一个不使用API-bind<br>
+```
+setTimeout(function(){
+console.log(this)
+setTimeout(function(){
+console.log(this)
+},1000)
+}.bind({name:'test'},1000))
+```
+
+两个函数同时使用bind，产生的效果如下<br>
+
+```
+setTimeout(function(){
+console.log(this)
+setTimeout(function(){
+console.log(this)
+}.bind(this),1000) 
+}.bind({name:'test'},1000))
+
+// 也可以使用箭头函数，达到同样的效果
+setTimeout(function(){
+console.log(this)
+setTimeout(()=>console.log(this),1000)
+}.bind({name:'test'}),1000)
+// name:'test'
+// name:'test'
+
+```
 5.0 函数柯里化<br>
 ```
 function sum(x,y){
