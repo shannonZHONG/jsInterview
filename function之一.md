@@ -279,6 +279,7 @@ function sum(x,y,z){return  x+y+z}
 var testSum = curry(sum)
 testSum(1)(2)(3)//6
 
+//下面这个例子：参数不限量同时也可以一次性获取结果
 
 function curry(func , fixedParams){
     if ( !Array.isArray(fixedParams) ) { fixedParams = [ ] }
