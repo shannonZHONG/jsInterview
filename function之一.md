@@ -263,12 +263,38 @@ addOne(4)
 6.0 自制一个柯里化函数<br>
 ```
 
+// 需要传参的个数已经确定，不更再次更改。此外，参数必须一个一个的传,才能达到最后的效果.
+function curry(fn){
+         return function(p1){
+         return function(p2){
+         return function(p3){
+         return fn.call(undefined,p1,p2,p3)
+         }
+         }
+         }
+}
+
+function sum(x,y,z){return  x+y+z}
+
+var testSum = curry(sum)
+testSum(1)(2)(3)//6
 
 
+function curry(func , fixedParams){
+    if ( !Array.isArray(fixedParams) ) { fixedParams = [ ] }
+    return function(){
+        let newParams = Array.prototype.slice.call(arguments); // 新传的所有参数
+        if ( (fixedParams.length+newParams.length) < func.length ) {
+            return curry(func , fixedParams.concat(newParams));
+        }else{
+            return func.apply(undefined, fixedParams.concat(newParams));
+        }
+    };
+}
 
+function abc(a,b,c){return [a,b,c]}
 
-
-
+var testArray = curry(abc)
 ```
 
 7.0 高阶函数<br>
