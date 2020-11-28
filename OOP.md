@@ -36,8 +36,9 @@ console.dir(studentName0)// 对象studentName0 不仅有自己的属性，还继
 var array = [1,2,3]
 array.push(4)
 console.log(array)
-array.__proto__ ===Array.prototype //true
-array.__proto__.__proto__ ===Object.prototype //true
+array._proto_ ===Array.prototype
+array. _proto_. _proto_ === Object.prototype
+
 ```
 
 
