@@ -9,19 +9,29 @@
 ie:就像div 这个标签一样。div可以是节点:div.childNodes
 也可以是元素：div.children<br>
 
-javascript 是如何实现面向对象的<br>
+javascript 是如何实现面向对象的:通过__proto__和prototype<br>
 共用属性<br>
+例子1:<br>
+```
+var obj ={'name':'a',age:18}
+
+var obj2 = {'name':'b',age:20}
+
+console.dir(obj)// obj的一个属性__proto__:Object
+console.dir(obj2)//obj2的一个属性__proto__:Object 
+
+obj.__proto__ == obj2.__proto__// true 证明的确是指向同一个对象，那么这个对象所有的属性都将由对象obj，obj2继承。
+
+```
+例子2:<br>
+```
+var obj ={test:'test',test0:'test0'}
+var studentName0 = {name:'jack'}
+var studentName1 = {name:'mark'}
+studentName.__proto__ = obj
+console.dir(studentName0)// 对象studentName0 不仅有自己的属性，还继承对象obj的属性. 
+```
+例子3:<br>
 ```
 
-
-
-
 ```
-
-
-
-
-
-
-
-
