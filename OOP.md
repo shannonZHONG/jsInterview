@@ -40,5 +40,30 @@ array._proto_ ===Array.prototype
 array. _proto_. _proto_ === Object.prototype
 
 ```
+函数是一种可执行代码组成的对象<br>
+
+```
+var obj = {
+name:'f',
+length:2,
+params:['x','y'],
+functionBody:'console.log("hello world")',
+}
+
+objGong = {
+call:function(x){
+eval(x.functionBody)
+}
+}
+
+obj.__proto__ = objGong
+obj.call(obj)// hello world 
+
+```
+
+函数和对象之间的桥梁就是this<br>
+
+```
 
 
+```
