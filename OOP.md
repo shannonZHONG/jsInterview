@@ -151,11 +151,42 @@ obj.sayName()
 obj. sayNmae.call(obj)
 // 以上得到相同的结果
 ```
-
+bind：创建一个新函数，然后新函数会去调用之前的那个函数
 ```
 function f(){
-   
+  console.log(this);
+  console.log(arguments)
+}
+f.bind({test:'test0'},2)
+f2 = f.bind({test:'test0'},2)
+f2()
+{test: "test0"}
+Arguments [2, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+```
+
+new<br>
+重复批量生产对象.<br>
+不是每生成一个对象都需要一个一个的属性敲出来，可以把共有属性都放在一起且重复使用<br>
+```
+var studentName = []
+var student
+var studentCommon = {
+    level:'A',
+    theDateOfBirthYear:'2002',
+    walking:function(){/*the way of walking*/},
+    running:function(){/*the way of running*/},
+    theDateofOpeningSchool:function(){/*the Date of Opening School*/},
+    thePlaceOfSchool:function(){/*the place of school*/},
+    thePlaceOfStudentResidence:function(){/*the place of school*/}
 }
 
-
+for(var i= 0;i<100; i++){
+    student = {
+       ID:i,
+       TheAgeOfStudent:18,
+    }
+student._proto_ = studentCommon // 这个不能在实际应用环境中使用
+student.push(student)
+   
+}
 ```
