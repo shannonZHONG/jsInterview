@@ -40,6 +40,7 @@ array._proto_ ===Array.prototype
 array. _proto_. _proto_ === Object.prototype
 
 ```
+
 函数是一种可执行代码组成的对象<br>
 
 ```
@@ -63,7 +64,7 @@ obj.call(obj)// hello world
 
 函数和对象之间的桥梁就是this<br>
 
-没有this <br>
+没有this的情况下，传递参数如下：<br>
 ```
 function sayName(name){
          console.log('I am' +' ' +name)
@@ -72,6 +73,7 @@ function sayName(name){
 sayName('test')// 直接调用函数而且传递参数为字符串：test
 var obj = {name:'test'}
 sayName(obj.name)//直接调用函数且传递参数为对象的一个属性 
+
 
 var obj ={
     name:'test',
@@ -83,8 +85,10 @@ var obj ={
 
 obj.sayName(obj.name) 
 注意：obj.sayName 和function没有任何关系. obj.sayName 只是存了函数这个地址而已.
+```
 
-
+函数和对象之间毫无联系<br>
+```
 // obj2.dofoo 和function dofoo 没有任何联系，同理obj.foo 和function foo 没有任何联系.
 function foo () {
   console.log('结果为function foo被调用的结果')
@@ -146,4 +150,12 @@ var obj ={
 obj.sayName()
 obj. sayNmae.call(obj)
 // 以上得到相同的结果
+```
+
+```
+function f(){
+   
+}
+
+
 ```
