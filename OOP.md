@@ -63,7 +63,87 @@ obj.call(obj)// hello world
 
 函数和对象之间的桥梁就是this<br>
 
+没有this <br>
+```
+function sayName(name){
+         console.log('I am' +' ' +name)
+         return true 
+}
+sayName('test')// 直接调用函数而且传递参数为字符串：test
+var obj = {name:'test'}
+sayName(obj.name)//直接调用函数且传递参数为对象的一个属性 
+
+var obj ={
+    name:'test',
+    sayName:function(name){
+    console.log('I am ' + name)
+    return true 
+    }
+}
+
+obj.sayName(obj.name) 
+注意：obj.sayName 和function没有任何关系. obj.sayName 只是存了函数这个地址而已.
+
+
+// obj2.dofoo 和function dofoo 没有任何联系，同理obj.foo 和function foo 没有任何联系.
+function foo () {
+  console.log('结果为function foo被调用的结果')
+  console.log(this.a)
+}
+function doFoo (fn) {
+  console.log('结果为function dofoo被调用的结果')
+  console.log(this)
+  fn()
+}
+var obj = { a: 1, foo }
+var a = 2
+var obj2 = { a: 3, doFoo }
+
+obj2.doFoo(obj.foo)
+
+结果为function dofoo被调用的结果
+{a: 3, doFoo: ƒ}
+结果为function foo被调用的结果
+2
+
+
+//如果在严格模式下，就会报错
+"use strict"
+function foo () {
+  console.log('结果为function foo被调用的结果')
+  console.log(this.a)
+}
+function doFoo (fn) {
+  console.log('结果为function dofoo被调用的结果')
+  console.log(this)
+  fn()
+}
+var obj = { a: 1, foo }
+var a = 2
+var obj2 = { a: 3, doFoo }
+
+obj2.doFoo(obj.foo)
+结果为function dofoo被调用的结果
+{a: 3, doFoo: ƒ}
+结果为function foo被调用的结果
+// Uncaught TypeError: Cannot read property 'a' of undefined
+at foo (<anonymous>:4:20)
+at Object.doFoo (<anonymous>:9:3)
+at <anonymous>:15:6
+
 ```
 
-
+引入this<br>
+```
+// this 可以访问.sayName前面的东东
+var obj ={
+    name:'test',
+    sayName:function(){
+    console.log('I am ' + this.name)
+    return true 
+    }
+}
+obj.sayName()
+obj. sayNmae.call(obj)
+// 以上得到相同的结果
 ```
