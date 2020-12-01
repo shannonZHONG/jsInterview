@@ -168,7 +168,7 @@ new<br>
 重复批量生产对象.<br>
 不是每生成一个对象都需要一个一个的属性敲出来，可以把共有属性都放在一起且重复使用<br>
 ```
-var studentName = []
+var students = []
 var student
 var studentCommon = {
     level:'A',
@@ -186,7 +186,62 @@ for(var i= 0;i<100; i++){
        TheAgeOfStudent:18,
     }
 student._proto_ = studentCommon // 这个不能在实际应用环境中使用
-student.push(student)
+students.push(student)
    
 }
+
 ```
+
+// 使用构造函数封装共有属性
+```
+studentCommon.prototype = {
+    level:'A',
+    theDateOfBirthYear:'2002',
+    walking:function(){/*the way of walking*/},
+    running:function(){/*the way of running*/},
+    theDateofOpeningSchool:function(){/*the Date of Opening School*/},
+    thePlaceOfSchool:function(){/*the place of school*/},
+    thePlaceOfStudentResidence:function(){/*the place of school*/}
+}
+
+function studentCommon(){
+         var obj ={
+             ID:i,
+             TheAgeOfStudent:18,         
+         }
+         obj._proto_ = studentCommon.prototype
+         return obj
+}
+
+
+var students = []
+for(var i= 0;i<100; i++){
+   Array.prototype.push.call(students,studentCommon.call())
+   //students.push(createSoldier())
+}
+
+
+```
+
+// 使用prototype构造对象
+```
+function StudentCommon(){
+         this.ID = i
+         this.TheAgeOfStudent = 18       
+}
+
+StudentCommon.prototype.level = 'A',
+StudentCommon.prototype.theDateOfBirthYear = '2002',
+StudentCommon.prototype.walking = function(){/*the way of walking*/},
+StudentCommon.prototype.running = function(){/*the way of running*/},
+StudentCommon.prototype.theDateofOpeningSchool = function(){/*the Date of Opening School*/},
+StudentCommon.prototype.thePlaceOfSchool  = function(){/* the place of school */},
+StudentCommon.prototype.thePlaceOfStudentResidence = function(){/*  the place of school Residence */}
+
+var students = []
+for(var i=0;i<100;i++){
+    students.push(new StudentCommon())
+}
+
+```
+
