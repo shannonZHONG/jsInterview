@@ -9,6 +9,8 @@
 ie:就像div 这个标签一样。div可以是节点:div.childNodes
 也可以是元素：div.children<br>
 
+对象和对象之间的继承<br>
+
 javascript 是如何实现面向对象的:通过__proto__和prototype<br>
 共用属性<br>
 例子1:<br>
@@ -167,6 +169,7 @@ Arguments [2, callee: ƒ, Symbol(Symbol.iterator): ƒ]
 new<br>
 重复批量生产对象.<br>
 不是每生成一个对象都需要一个一个的属性敲出来，可以把共有属性都放在一起且重复使用<br>
+
 ```
 var students = []
 var student
@@ -193,6 +196,7 @@ students.push(student)
 ```
 
 // 使用构造函数封装共有属性
+
 ```
 studentCommon.prototype = {
     level:'A',
@@ -243,5 +247,96 @@ for(var i=0;i<100;i++){
     students.push(new StudentCommon())
 }
 
+
 ```
+
+
+
+```
+function StudentCommon(){
+         this.ID = i
+         this.TheAgeOfStudent = 18       
+}
+
+StudentCommon.prototype.level = 'A',
+StudentCommon.prototype.theDateOfBirthYear = '2002',
+StudentCommon.prototype.walking = function(){/*the way of walking*/},
+StudentCommon.prototype.running = function(){/*the way of running*/},
+StudentCommon.prototype.theDateofOpeningSchool = function(){/*the Date of Opening School*/},
+StudentCommon.prototype.thePlaceOfSchool  = function(){/* the place of school */},
+StudentCommon.prototype.thePlaceOfStudentResidence = function(){/*  the place of school Residence */}
+
+
+
+```
+
+
+
+// 用javascritp 来模拟继承 相当于es6当中的extend 
+
+```
+function Human(){
+         this.name = 'xxx'
+         this.肤色 = 'yyy'
+}
+
+Human.prototype.eat = function(){}
+Human.prototype.drink = function(){}
+Human.prototype.poo = function(){}
+// 以下是特有属性
+function StudentCommon(){
+         Human.call(this)// 外面的this当作里面的this 
+         var i
+         this.ID = i
+         this.TheAgeOfStudent = 18       
+}
+
+StudentCommon.prototype.level = 'A',
+StudentCommon.prototype.theDateOfBirthYear = '2002',
+StudentCommon.prototype.walking = function(){/*the way of walking*/},
+StudentCommon.prototype.running = function(){/*the way of running*/},
+StudentCommon.prototype.theDateofOpeningSchool = function(){/*the Date of Opening School*/},
+StudentCommon.prototype.thePlaceOfSchool  = function(){/* the place of school */},
+StudentCommon.prototype.thePlaceOfStudentResidence = function(){/*  the place of school Residence */}
+
+StudentCommon.prototype.__proto__ = Human.prototype
+
+var s = new StudentCommon()
+
+
+```
+
+
+```
+function Human(options){
+         this.name = options.name
+         this.color =options.color
+}
+
+Human.prototype.eat = function(){}
+Human.prototype.drink = function(){}
+Human.prototype.poo = function(){}
+// 以下是特有属性
+function StudentCommon(options){
+         // this._proto_ = StudentCommon.prototype
+         Human.call(this,options)
+         var i
+         this.ID = options.ID
+         this.TheAgeOfStudent = 18       
+}
+
+StudentCommon.prototype.level = 'A',
+StudentCommon.prototype.theDateOfBirthYear = '2002',
+StudentCommon.prototype.walking = function(){/*the way of walking*/},
+StudentCommon.prototype.running = function(){/*the way of running*/},
+StudentCommon.prototype.theDateofOpeningSchool = function(){/*the Date of Opening School*/},
+StudentCommon.prototype.thePlaceOfSchool  = function(){/* the place of school */},
+StudentCommon.prototype.thePlaceOfStudentResidence = function(){/*  the place of school Residence */}
+
+StudentCommon.prototype.__proto__ = Human.prototype// 不推荐使用__proto__,使用new 更佳
+
+var s = new StudentCommon({name:'test',color:'yellow',ID:1})
+
+```
+
 
