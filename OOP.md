@@ -341,11 +341,38 @@ var s = new StudentCommon({name:'test',color:'yellow',ID:1})
 ```
 
 
+不使用__proto__的情况下， studentCommon继承human 的属性<br>
+```
+function Human(options){
+         this.name = options.name
+         this.color =options.color
+}
+
+Human.prototype.eat = function(){}
+Human.prototype.drink = function(){}
+Human.prototype.poo = function(){}
+// 以下是特有属性
+function StudentCommon(options){
+         // this._proto_ = StudentCommon.prototype
+         Human.call(this,options)
+         var i
+         this.ID = options.ID
+         this.TheAgeOfStudent = 18       
+}
+
+StudentCommon.prototype.level = 'A',
+StudentCommon.prototype.theDateOfBirthYear = '2002',
+StudentCommon.prototype.walking = function(){/*the way of walking*/},
+StudentCommon.prototype.running = function(){/*the way of running*/},
+StudentCommon.prototype.theDateofOpeningSchool = function(){/*the Date of Opening School*/},
+StudentCommon.prototype.thePlaceOfSchool  = function(){/* the place of school */},
+StudentCommon.prototype.thePlaceOfStudentResidence = function(){/*  the place of school Residence */}
+
+StudentCommon.prototype = Object.create(Human.prototype)
+
+var s = new StudentCommon({name:'test',color:'yellow',ID:1})
 
 
 ```
 
 
-
-
-```
