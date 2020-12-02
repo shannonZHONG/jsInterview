@@ -307,6 +307,7 @@ var s = new StudentCommon()
 ```
 
 
+studentCommon 继承 human 的私有和共有属性<br>
 ```
 function Human(options){
          this.name = options.name
@@ -340,3 +341,11 @@ var s = new StudentCommon({name:'test',color:'yellow',ID:1})
 ```
 
 
+
+
+```
+
+
+
+
+```
