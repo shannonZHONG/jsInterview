@@ -32,7 +32,7 @@ client:客户端<br>
 
 用命令行curl 来发送请求 curl -s -v -H "Frank: xxx" -- "https://www.baidu.com"<br>
 
-> GET / HTTP/1.1<br>
+>GET / HTTP/1.1<br>
 > Host: www.baidu.com<br>
 > User-Agent: curl/7.64.1<br>
 > Accept: */*<br>
