@@ -30,7 +30,21 @@ client:客户端<br>
 
 
 
+用命令行curl 来发送请求 curl -s -v -H "Frank: xxx" -- "https://www.baidu.com"<br>
+> GET / HTTP/1.1<br>
+> Host: www.baidu.com<br>
+> User-Agent: curl/7.64.1<br>
+> Accept: */*<br>
+> Frank: xxx<br>
 
+
+< HTTP/1.1 200 OK<br>
+< Accept-Ranges: bytes<br>
+< Cache-Control: private, no-cache, no-store, proxy-revalidate, no-transform<br>
+< Connection: keep-alive<br>
+< Content-Length: 2443<br>
+< Content-Type: text/html<br>
+< Date: Fri, 04 Dec 2020 13:43:43 GMT<br>
 
 
 
