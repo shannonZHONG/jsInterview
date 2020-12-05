@@ -127,6 +127,8 @@ post：上传内容;ie:用户登陆<br>
 4XX:表示客户端错了<br>
 5XX:表示服务器错了<br>
 状态解释没有用<br>
+第二部分中的Content-type标注了第4部分的格式<br>
+第二部分的Content-typez遵循规范<br>
 
 
 
