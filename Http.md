@@ -57,12 +57,12 @@ Accept: */*
 Frank: xxx
 
 响应部分:<br>
-HTTP/1.1 302 Found
-Content-Length: 17931
-Content-Type: text/html
-Date: Sat, 05 Dec 2020 09:12:09 GMT
-Etag: "54d9748e-460b"
-Server: bfe/1.0.8.18
+HTTP/1.1 302 Found<br>
+Content-Length: 17931<br>
+Content-Type: text/html<br>
+Date: Sat, 05 Dec 2020 09:12:09 GMT<br>
+Etag: "54d9748e-460b"<br>
+Server: bfe/1.0.8.18<br>
 
 
 
