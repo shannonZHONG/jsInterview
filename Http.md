@@ -66,7 +66,12 @@ Server: bfe/1.0.8.18<br>
 
 
 
-用命令行curl 来发送post请求 带字节 curl -X post -d "1234567890"-s -v -H "Frank: xxx" -- "https://www.baidu.com"
+用命令行curl 来发送post请求 带字节 curl -X post -d "1234567890"-s -v -H "Frank: xxx" -- "https://www.baidu.com"<br>
+有三种命令来发送请求:<br>
+curl<br>
+curl -s -v --"https://www.baidu.com"<br>
+curl -s -v -H "https://www.baidu.com"<br>
+
 
 相比较于前面的两种命令都没有带字节请求的，这样的请求得到的响应多两行:content-length,content-type<br>
 请求部分:<br>
