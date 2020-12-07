@@ -166,8 +166,15 @@ IP 网络协议<br>
 服务器就是你的电脑，你的电脑就是服务器<br>
 但是你还没有提供HTTP服务的程序<br>
 用脚本就可以提供HTTP服务，不管是Bash脚本还是Node.js脚本都可以<br>
-
-
+ie:使用node.js来提供脚本:<br>
+ie:设置网页以什么样的格式来呈现 等同于 响应的第二部分 Content-type: text/html<br>
+response.setHeader('Content-type','text/html;charset =utf-8')<br>
+ie:设置响应的第一部分状态码<br>
+response.stateCode = 404
+ie:设置响应的内容（响应的第4部分）是什么<br>
+response.write('hi')<br>
+response.end();<br>
+响应的每一个部分都有对应的API<br>
 
 
 
