@@ -40,13 +40,14 @@ button.addEventListener('click',(e)=>{
        let image = document.createElement('script')
        img.src = '/pay'
        document.body.appendChild(script){
-       script.onload = function(){
-       alert('好的')
+       script.onload = function(e){
+       e.currentTarget.remove()
+       }
        script.onerror = function(){
        alert('不好')
        }
        }
-       }
+       
 })
 
 ```
