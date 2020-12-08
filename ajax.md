@@ -71,4 +71,11 @@ JSONP:<br>
 1.callbackName -> callback <br>
 2.yyy->随机数<br>
 
+测试题一道:<br>
+jsonp为什么不支持post请求<br>
+因为jsonp 是动态创建script实现;<br>
+动态创建script不支持get请求<br> 
+
+
+Ajax: 异步的JavaScript和XML<br> 
 
