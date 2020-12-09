@@ -78,5 +78,49 @@ jsonp为什么不支持post请求<br>
 
 
 Ajax: 异步的JavaScript和XML<br> 
+1.使用XMLHttpRequest发请求<br>
+2.服务器返回XML格式的字符串<br>
+3.JS解析XML，并更新局部页面<br>
+XMLHttpRequest是一个对象.<br>
+```
+window.XMLHttpRequest()
+ƒ XMLHttpRequest() { [native code] }
+
+```
+
+因为是一个对象，所以可以随便new 一个出来<br>
+
+```
+var x = new XMLHttpRequest()
+console.log(x)
+XMLHttpRequest {onreadystatechange: null, readyState: 0, timeout: 0, withCredentials: false, upload: XMLHttpRequestUpload, …}
+onabort: null
+onerror: null
+onload: null
+onloadend: null
+onloadstart: null
+onprogress: null
+onreadystatechange: null
+ontimeout: null
+readyState: 0
+response: ""
+responseText: ""
+responseType: ""
+responseURL: ""
+responseXML: null
+status: 0
+statusText: ""
+timeout: 0
+```
+
+Ajax:<br>
+用原生javascript来发送ajax:<br>
+完成这一步，肯定是需要服务器的<br>
+```
 
 
+
+
+
+
+```
