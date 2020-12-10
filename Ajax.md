@@ -116,11 +116,30 @@ timeout: 0
 Ajax:<br>
 用原生javascript来发送ajax:<br>
 完成这一步，肯定是需要服务器的<br>
+
+```
+myButton.addEventListener('click',(e)=>{
+         let request = new XMLHttpRequest()
+         request.open('GET','/xxx')//配置 request
+         request.send()
+         setInterval(()=>{
+         console.log(request.readyState)
+},1)
+
+})
 ```
 
 
+javascript 和 json 的差别<br>
+js vs json <br>
+undefined        没有<br>
+null             null<br>
+['a','b']        ["a","b"]<br>
+function fn(){}  没有<br>
+{name:'frank'}   {"name":"frank"}<br>
+'frank'           "frank"<br>
+a.self=a          搞不掂<br>
+{__proto__}       没有原形链<br>
 
 
 
-
-```
