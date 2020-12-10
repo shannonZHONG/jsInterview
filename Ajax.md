@@ -129,7 +129,7 @@ myButton.addEventListener('click',(e)=>{
 })
 ```
 
-
+在服务器第四部分返回的不是对象，而是符合json语法的字符串<br>
 javascript 和 json 的差别<br>
 js vs json <br>
 undefined        没有<br>
@@ -140,6 +140,23 @@ function fn(){}  没有<br>
 'frank'           "frank"<br>
 a.self=a          搞不掂<br>
 {__proto__}       没有原形链<br>
+
+JSON没有抄袭function 和 undefined<br>
+JSON 的字符串首尾必须是"<br>
+
+```
+response.write(`
+{
+   "note":{
+   "to":“小谷”，
+   “from”: "返回的不是对象",
+   "heading":"打招呼",
+   "content":"hi"
+   }
+}
+`)
+
+```
 
 
 
