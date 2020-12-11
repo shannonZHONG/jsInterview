@@ -129,6 +129,7 @@ myButton.addEventListener('click',(e)=>{
 
 ```
 如需配置ajax请求的4部分和获取响应4部分,代码如下：<br>
+
 ```
 myButton.addEventListener('click',(e)=>{
          let request = new XMLHttpRequest()
@@ -137,17 +138,20 @@ myButton.addEventListener('click',(e)=>{
          request.setRequestHeader('','')//设置请求的格式      
          request.send()//设置reqeust 第四部分
          request.onreadystatechange = ()=>{
+         
          ...../
          console.log(request.states) 
          console.log(request.statusText)
          console.log(request.getResponseHeader('Content-type'))
          console.log(request.responseText)
          ...../
+         
          }
 
 })
 
 ```
+
 
 
 在服务器第四部分返回的不是对象，而是符合json语法的字符串<br>
