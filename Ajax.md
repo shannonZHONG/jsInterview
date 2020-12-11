@@ -122,9 +122,8 @@ myButton.addEventListener('click',(e)=>{
          let request = new XMLHttpRequest()
          request.open('GET','/xxx')//配置 request
          request.send()
-         setInterval(()=>{
-         console.log(request.readyState)
-},1)
+         request.onreadystatechange = ()=>{  
+         }
 
 })
 ```
