@@ -164,13 +164,7 @@ response.write(`
 只有协议+端口+域名一摸一样才允许发AJAX请求<br>
 从网站用户信息安全来看，会更安全一些。<br>
 举个栗子：直接转账，随意的向任何一个网站发一个post或者get请求，这样的情况要是被允许的话，后果不堪设想。<br>
-CORS(cross-origin-resource-sharing):
+CORS(cross-origin-resource-sharing):<br>
+在被请求的网站服务器里添加一句:<br>
+response.setHeader('Access-Control-Allow-Origin','请求的网站的网址')
 
-
-```
-
-
-
-
-
-```
