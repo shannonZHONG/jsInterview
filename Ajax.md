@@ -151,8 +151,16 @@ myButton.addEventListener('click',(e)=>{
 })
 
 ```
+总结：<br>
+JS 可以设置任意请求header<br>
+第一部分： request.open('get','/xxx')<br>
+第二部分： request.setHeader('content-type','x-www')<br>
+第四部分： request.send('a=1&b=2')<br>
 
-
+JS 可以获取任意响应的header<br>
+第一部分：request.status / request.statusText<br>
+第二部分：request.getResponseHeader()/ request.getAllResponseHeaders()<br>
+第四部分：request.responseText<br>
 
 在服务器第四部分返回的不是对象，而是符合json语法的字符串<br>
 javascript 和 json 的差别<br>
