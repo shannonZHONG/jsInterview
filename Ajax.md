@@ -201,8 +201,51 @@ CORS(cross-origin-resource-sharing):<br>
 在被请求的网站服务器里添加一句:<br>
 response.setHeader('Access-Control-Allow-Origin','请求的网站的网址')
 
+
 自制ajax，更了解ajax<br>
 ```
+// 这样的写法不好，会导致传的参数没有结构,混乱.
+window.jQuery.ajax = function(url,method,body,successFn,failFn){
+              let request = new XMLHttpRequest()
+              request.open(method,url)
+              request.onreadystatechange = ()=>{
+                    if(request.readyState === 4){
+                         if(request.status >=200 && request.status < 300){
+                                successFn.call(undefined,request.responseText)
+                         }else if(request.status >= 400){
+                                failFn.call(undefined,request)
+                         }
+                    }
+              }
+request.call(undefined,request)
+}
 
+``` 
 
+把所有传递的参数放在一个对象里面<br>
+
+```  
+     window.jQuery.ajax = function(options){
+      let url = options.url
+      let method = options.method
+      let body = options.body
+      let successFn = options.successFn
+      let failFn = options.failFn
+      
+      let request = new XMLHttpRequest()
+      request.open(method,url)
+      request.onreadystatechange = ()=>{
+              if(request.readyState === 4){
+                     if(request.status >=200 && request.status < 300){
+                                successFn.call(undefined,request.responseText)
+                         }else if(request.status >= 400){
+                                failFn.call(undefined,request)
+                         }
+                    }
+              }
+                     request.send(body)
+                     
+}     
+    
 ```
+
