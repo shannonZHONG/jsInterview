@@ -201,3 +201,8 @@ CORS(cross-origin-resource-sharing):<br>
 在被请求的网站服务器里添加一句:<br>
 response.setHeader('Access-Control-Allow-Origin','请求的网站的网址')
 
+自制ajax，更了解ajax<br>
+```
+
+
+```
