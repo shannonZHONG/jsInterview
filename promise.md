@@ -449,8 +449,8 @@ function 打印失败信息(理由){
    
 let 用户信息 = await 获取用户信息('test1')
 console.log(用户信息)
-
-
-
-   
+  
 ```
+
+
+
